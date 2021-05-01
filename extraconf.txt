@@ -1,0 +1,14 @@
+#Aws media storage configurations
+AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVD7SHG56Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bucketeer-2f684366-2bb2-4c2e-bf3c-b0afff96315a'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+#Whitenoise for statc files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#Whitenoise for middleware
+'whitenoise.middleware.WhiteNoiseMiddleware',
