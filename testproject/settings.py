@@ -134,8 +134,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
-
-MEDIA_ROOT = BASE_DIR / 'static/media/'
+#MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 '''
 AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVATR5L7HQ'
@@ -148,7 +148,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.ftp.FTPStorage'
 FTP_STORAGE_LOCATION = 'ftp://djangoappstorage:Nimudryflower2020@files.000webhost.com:21'
-BASE_URL = '/photo/'
+#BASE_URL = '/media/'
 ENCODING = 'utf-8'
 
 # Default primary key field type
