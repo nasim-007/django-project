@@ -137,12 +137,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
-AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVD7SHG56Q'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bucketeer-2f684366-2bb2-4c2e-bf3c-b0afff96315a'
+'''
+AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVATR5L7HQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bucketeer-877dd773-51d8-45f1-bff8-64ae71ebc53d'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+'''
+
+DROPBOX_OAUTH2_TOKEN = 'sl.AwCE_ezGIKTgt0Bx-3R3q2e23YkpnsbRrB19rIoo57cGNfSl_pLtoFMJy2b71PG-vR1glVUhjT7fLXdVK7r1N6E053mZlu0vgbH4RYo3YI3B0QCTUOEkEKW4XcEO-ASq9_LfVKA'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
 
 
 # Default primary key field type
