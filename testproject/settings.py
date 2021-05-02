@@ -134,7 +134,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
-MEDIA_URL = '/media/'
+
 MEDIA_ROOT = BASE_DIR / 'static/media/'
 
 '''
@@ -146,6 +146,10 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 '''
 
+DEFAULT_FILE_STORAGE = 'storages.backends.ftp.FTPStorage'
+FTP_STORAGE_LOCATION = 'ftp://djangoappstorage:Nimudryflower2020@files.000webhost.com:21'
+BASE_URL = '/photo/'
+ENCODING = 'utf-8'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
