@@ -13,3 +13,12 @@ def homepage(request):
     }
 
     return render(request, 'index.html', context)
+
+def blueberry(request):
+
+    
+    context = {
+       
+    }
+
+    return render(request, 'blueberry.html', context)
