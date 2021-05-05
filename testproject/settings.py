@@ -45,8 +45,13 @@ INSTALLED_APPS = [
     'myapp',
     'album',
     'blog',
-    'storages'
+    'storages',
+    'taggit'
 ]
+
+INSTALLED_APPS += ('django_summernote', )
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,17 +144,23 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 
-AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVGUEVAO6B'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVGB6OFLTK'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'nasim.secpstorage'
-AWS_S3_FILE_OVERWRITE = False
+AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+'''
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = 'S9RQm48HGU4AAAAAAAAAAQpytNVMRZemF-Cry-KpE6dt9t1tXsrvOm4_whCjDq83'
+'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 django_heroku.settings(locals())
