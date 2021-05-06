@@ -7,7 +7,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=100)
     slug = models.SlugField()
-    thumbnail = models.ImageField(upload_to='nasim/')
+    thumbnail = models.ImageField(upload_to='public/')
     short_description = models.TextField()
     description = models.TextField()
     tags = TaggableManager()
