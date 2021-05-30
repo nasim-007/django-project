@@ -10,6 +10,6 @@
     }
   },
   "scripts": {
-    "postdeploy": "python manage.py migrate"
+    "postdeploy": "release: python manage.py migrate"
   }
 }
