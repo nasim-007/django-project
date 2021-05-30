@@ -1,12 +1,7 @@
 {
-  "name": "Deploy to Heroku",
+  "name": "Django Bloging App",
+  "description": "A practicing project for SECP",
   "logo": "https://raw.githubusercontent.com/heroku/webhooks-demo/master/app/assets/images/heroku_webhooks.png",
   "repository": "https://github.com/nasim-007/django-project",
-  "addons": ["heroku-postgresql:hobby-dev"],
-  "env": {
-    "WEBHOOK_SECRET": {
-      "description": "secret used to check webhook signing",
-      "generator": "secret"
-    }
-  }
+  "keywords": ["python", "django", "personal-blog"]
 }
