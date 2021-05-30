@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import CommentForm
+from django.db.models import Count
 from django.http import HttpResponseRedirect
 from .models import Post, Category
 from django.db.models import Q
@@ -12,12 +13,14 @@ def blog_list(request):
 
     
     
-    categories = Category.objects.all()
+    #categories = Category.objects.all()
     posts = Post.objects.all()
+    
+    categories = Category.objects.all().annotate(posts_count=Count('posts'))
     
     latest_post = Post.objects.all()[:3]
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
@@ -39,7 +42,7 @@ def blog_list(request):
 
 def blog_details(request, slug):
 
-    categories = Category.objects.all()
+    categories = Category.objects.all().annotate(posts_count=Count('posts'))
     
     latest_post = Post.objects.all()[:3]
     
@@ -88,7 +91,7 @@ def blog_details(request, slug):
 def search_blog(request):
     
     
-    categories = Category.objects.all()
+    categories = Category.objects.all().annotate(posts_count=Count('posts'))
     
     latest_post = Post.objects.all()[:3]
     
@@ -121,7 +124,7 @@ def category(request, category_slug=None):
 
     
     category = None
-    categories = Category.objects.all()
+    categories = Category.objects.all().annotate(posts_count=Count('posts'))
     posts = Post.objects.all()
     
     latest_post = Post.objects.all()[:3]

@@ -286,29 +286,35 @@
 
         
         
-        <!-- widget categories -->
-        <div class="widget rounded">
-          <div class="widget-header text-center">
-            <h3 class="widget-title">Explore Topics</h3>
-            <img src="{% static 'blog/images/wave.svg' %}" class="wave" alt="wave" />
-          </div>
-          <div class="widget-content">
-            <ul class="list">
-              
-               
-               {% for category in categories  %}
-                 
-               
-                 
-              <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-              
-              {% endfor %}
-            
-            
-            </ul>
-          </div>
-          
+       <!-- widget categories -->
+       <div class="widget rounded">
+        <div class="widget-header text-center">
+          <h3 class="widget-title">Explore Topics</h3>
+          <img src="{% static 'blog/images/wave.svg' %}" class="wave" alt="wave" />
         </div>
+        <div class="widget-content">
+          <ul class="list">
+            
+             
+             {% for category in categories  %}
+               
+             
+               
+            <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+            
+              <span>({{ category.posts_count }})</span></li>
+            
+            </li>
+            
+            
+            
+            {% endfor %}
+          
+          
+          </ul>
+        </div>
+        
+      </div>
         
         
         

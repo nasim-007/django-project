@@ -237,6 +237,8 @@
                 </div>
 
       <nav>
+        
+         
         <ul class="pagination justify-content-center">
           
           
@@ -259,21 +261,45 @@
           
           {% endif %}
           {% endfor %}
-        
-        
-        
-        
-          
-          
-          
-        
-        
-        
+ 
         
         
         </ul>
-      
-      
+        
+        
+        <!-- 
+        <ul class="pagination">
+
+          {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+          {% else %}
+              <li class="disabled"><span><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
+          {% endif %}
+          
+          {% if page_obj.number|add:'-4' > 1 %}
+              <li><a href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+          {% endif %}
+          
+          {% for i in page_obj.paginator.page_range %}
+              {% if page_obj.number == i %}
+                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                  <li><a href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+          {% endfor %}
+          
+          {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+              <li><a href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+          {% endif %}
+          
+          {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+          {% else %}
+              <li class="disabled"><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></li>
+          {% endif %}
+          
+          </ul>
+          -->
       
       </nav>
 
@@ -312,7 +338,13 @@
                  
                
                  
-              <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+              <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+              
+                <span>({{ category.posts_count }})</span></li>
+              
+              </li>
+              
+              
               
               {% endfor %}
             
