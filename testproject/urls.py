@@ -21,8 +21,10 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', include('blog.urls', namespace='blog')),
     path('admin/', admin.site.urls),
+    
+    path('', include('blog.urls', namespace='blog')),
+    
     path('myapp/', include('myapp.urls', namespace='myapp')),
     path('album/', include('album.urls', namespace='album')),
     path('summernote/', include('django_summernote.urls'))
