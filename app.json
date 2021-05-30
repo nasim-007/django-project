@@ -1,7 +1,0 @@
-{
-  "name": "Django Bloging App",
-  "description": "A practicing project for SECP",
-  "logo": "https://raw.githubusercontent.com/heroku/webhooks-demo/master/app/assets/images/heroku_webhooks.png",
-  "repository": "https://github.com/nasim-007/django-project",
-  "keywords": ["python", "django", "personal-blog"]
-}
