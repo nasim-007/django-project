@@ -8,8 +8,5 @@
       "description": "secret used to check webhook signing",
       "generator": "secret"
     }
-  },
-  "scripts": {
-    "postdeploy": "release: python manage.py migrate"
   }
 }
