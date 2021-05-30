@@ -16,8 +16,5 @@ C:\django-project\env>scripts\activate.bat
 (env)C:\django-project>python manage.py runserver
 
 ```
-# Deploy to Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nasim-007/django-project)
 
 
