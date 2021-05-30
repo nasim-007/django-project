@@ -248,6 +248,13 @@
               <!-- comment item -->
 							<li class="comment rounded">
 								
+								
+								<div class="thumb">
+									<img src="{% static 'blog/images/default.png' %}" height="70" width="70" alt="Author" />
+								</div>
+								
+								
+								
 								<div class="details">
 									<h4 class="name"><a href="#">{{ comment.name }}</a></h4>
 									<span class="date">{{ comment.creation }}</span>
@@ -375,7 +382,7 @@
                   
                 <!-- post -->
             <div class="post post-list-sm circle">
-				<div class="thumb circle">
+				<div class="thumb square">
 				 
 				  <a href="{{ post.get_absolute_url}}">
 					<div class="inner">
@@ -502,8 +509,7 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
+
 
 <!-- JAVA SCRIPTS -->
 <script src="{% static 'blog/js/jquery.min.js' %}"></script>
@@ -512,6 +518,10 @@
 <script src="{% static 'blog/js/slick.min.js' %}"></script>
 <script src="{% static 'blog/js/jquery.sticky-sidebar.min.js' %}"></script>
 <script src="{% static 'blog/js/custom.js' %}"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
 
 </body>
 </html>
