@@ -1,0 +1,1079 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Blog Profile | Blueberry - Responsive Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    
+    
+    <!-- Facebook -->
+    <meta property="og:url" content="https://djangoproject2021.herokuapp.com/" />
+    <meta property="og:title" content="Blueberry(Django) simple blog" />
+    <meta
+      property="og:description"
+      content="Multifunctional blog application with pagination, search, comments and many more using django and blueberry."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% static "blueberry/facebook.png" %}" />
+    <meta property="og:image:type" content="image/png" />
+    
+     
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "blueberry/favicon.ico" %}" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Implementing Plugins -->
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/font-awesome/css/all.min.css" %}"
+    />
+    
+
+    <!-- CSS Blueberry Template -->
+    <link rel="stylesheet" href="{% static "blueberry/assets/css/theme.css" %}" />
+
+    
+
+    
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="header">
+      <div class="header-section">
+        <div id="logoAndNav" class="container">
+          <!-- Nav -->
+          <nav class="js-mega-menu navbar navbar-expand-lg">
+            <div class="navbar-nav-wrap">
+              <!-- Logo -->
+              <a class="navbar-brand navbar-nav-wrap-brand" href="#" aria-label="Blueberry">
+                <img src="{% static "blueberry/assets/svg/logos/logo.svg" %}" alt="Logo">
+              </a>
+              <!-- End Logo -->
+    
+              <!-- Secondary Content -->
+              <div class="navbar-nav-wrap-content text-center">
+                
+              </div>
+              <!-- End Secondary Content -->
+    
+              <!-- Responsive Toggle Button -->
+              <button type="button" class="navbar-toggler navbar-nav-wrap-toggler btn btn-icon btn-sm rounded-circle"
+                      aria-label="Toggle navigation"
+                      aria-expanded="false"
+                      aria-controls="navBar"
+                      data-toggle="collapse"
+                      data-target="#navBar">
+                <span class="navbar-toggler-default">
+                  <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"/>
+                  </svg>
+                </span>
+                <span class="navbar-toggler-toggled">
+                  <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                  </svg>
+                </span>
+              </button>
+              <!-- End Responsive Toggle Button -->
+    
+              <!-- Navigation -->
+              <div id="navBar" class="collapse navbar-collapse navbar-nav-wrap-collapse">
+                <div class="navbar-body header-abs-top-inner">
+                  <ul class="js-scroll-nav navbar-nav header-navbar-nav">
+                    <li class="header-nav-item active">
+                      <a class="nav-link header-nav-link" href="#">Home</a>
+                    </li>
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">About</a>
+                    </li>
+                    
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">Events</a>
+                    </li>
+                    
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">Contacts</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Navigation -->
+            </div>
+          </nav>
+          <!-- End Nav -->
+        </div>
+      </div>
+    </header>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN ========== -->
+    <main id="content" role="main">
+      
+      <a href="{% url 'blog:blog_list' %}">
+      <h4>All</h4>
+       </a>
+
+      {% for category in categories  %}
+        
+      <a href="{{ category.get_absolute_url }}"> 
+      <h4>{{ category.name }}</h4>
+      
+    
+    
+    </a>
+      
+       {% endfor %}    
+      
+      
+      
+      
+      <!-- User Profile Section -->
+      <div class="container space-top-1 space-bottom-2">
+        <div class="border-bottom w-md-75 w-lg-60 space-bottom-2 mx-md-auto">
+          
+          <!-- 
+            <div class="media d-block d-sm-flex">
+            <div
+              class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4"
+              style="width: 160px; height: 160px"
+            >
+              <img
+                class="img-fluid rounded-circle"
+                src="{% static "blueberry/assets/img/160x160/img1.jpg" %}"
+                alt="Image Description"
+                width="160"
+                height="160"
+              />
+              <img
+                class="bg-white position-absolute bottom-0 right-0 rounded-circle p-1"
+                src="{% static "blueberry/assets/svg/illustrations/top-vendor.svg" %}"
+                alt="Icon"
+                width="36"
+                height="36"
+                title="Top Writer"
+              />
+            </div>
+
+            <div class="media-body">
+              <div
+                class="d-flex justify-content-between align-items-center mb-2"
+              >
+                <h1 class="h3">Hanna Wolfe</h1>
+                <div class="d-block">
+                  <button
+                    type="button"
+                    class="btn btn-xs btn-outline-primary font-weight-bold text-nowrap ml-1"
+                  >
+                    Follow
+                  </button>
+                </div>
+              </div>
+
+              <div class="row text-body font-size-1 mb-2">
+                <div class="col-auto">
+                  <span class="h6">906</span>
+                  <span>Posts</span>
+                </div>
+                <div class="col-auto">
+                  <span class="h6">19.5k</span>
+                  <span>Followers</span>
+                </div>
+                <div class="col-auto">
+                  <span class="h6">109</span>
+                  <span>Following</span>
+                </div>
+              </div>
+
+              <p class="mb-0">
+                Nataly is a freelance journalist who's been published by Popular
+                Science, The Washington Post, USA Today, Slate, and many more.
+                Read more at
+                <a class="font-weight-bold" href="#">hannawolfe.com</a>
+              </p>
+            </div>
+          </div>
+        -->
+        
+       
+        
+        
+        
+        
+        
+        
+        <!-- Search Section -->
+<div class="bg-navy">
+  <div class="bg-img-hero-center" style="background-image: url({% static 'blueberry/assets/svg/components/abstract-shapes-19.svg' %});">
+    <div class="container space-1">
+      <div class="w-lg-80 mx-lg-auto">
+        
+        <!-- Input -->
+        <form action="{% url 'blog:search_blog' %}" class="input-group input-group-merge input-group-borderless">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="askQuestions">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <input type="search" class="form-control" placeholder="Search new blogs" name="q" aria-label="Search new blogs" aria-describedby="askQuestions">
+        </form>
+        <!-- End Input -->
+      
+      
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Search Section -->
+      
+      
+       
+       
+          
+      
+
+
+     </div>
+      </div>
+      <!-- End User Profile Section -->
+
+      
+      <!-- Blog Listing Section -->
+      <div class="container space-bottom-3">
+        
+        <div class="w-md-75 w-lg-60 mx-md-auto">
+          
+          
+          {% for post in page_obj %}
+          <article class="card mb-3 mb-sm-5">
+            <img
+              class="card-img-top"
+              src="{{ post.thumbnail.url }}"
+              alt="Image Description"
+            />
+
+            <div class="card-body">
+              
+
+              <h4>{{ post.category.name }}</h4>
+              
+              <h3>
+                <a class="text-inherit" href="{{ post.get_absolute_url }}"
+                  >{{ post.title }}</a
+                >
+              </h3>
+
+              <p>
+                {{ post.short_description }}
+              </p>
+
+              <div class="media align-items-center pt-5">
+                <div class="avatar-group">
+                  <div
+                    class="avatar avatar-xs avatar-circle"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Hanna Wolfe "
+                  >
+                  <div class="d-block">
+                    
+                    <a href="{{ post.get_absolute_url }}">
+                    <button
+                      type="button"
+                      class="btn btn-xs btn-outline-primary font-weight-bold text-nowrap ml-1"
+                    >
+                      View More..
+                    </button>
+                  </a>
+                  
+                  
+                  </div>
+                  </div>
+                </div>
+                <div
+                  class="media-body d-flex justify-content-end text-muted font-size-1 ml-2"
+                >
+                  {{ post.creation | timesince }}
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- End Blog Card -->
+          {% endfor %}
+          
+          
+          <div class="space-bottom-2"></div>
+
+          <!-- Pagination -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination mb-0">
+              
+              {% if page_obj.has_previous %}
+              <li class="page-item mr-auto">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="d-none d-sm-inline-block ml-1">Prev</span>
+                </a>
+              </li>
+              
+              {% else %}
+              <li class="page-item mr-auto">
+                <a class="page-link" href="" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="d-none d-sm-inline-block ml-1">Prev</span>
+                </a>
+              </li>
+              
+              {% endif %}
+              
+              
+              {% load l10n %}           
+              {% for post in page_obj.paginator.page_range %}
+              
+              {% if page_obj.number == post  %}
+              <li class="page-item active">
+                <a class="page-link" href="?page={{ post }}">{{ post | localize }}</a>
+              </li>
+              {% else %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ post }}">{{ post }}</a>
+              </li>
+
+              {% endif %}
+              {% endfor %}
+              
+              
+              {% if page_obj.has_next %}
+              <li class="page-item ml-auto">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                  <span class="d-none d-sm-inline-block mr-1">Next</span>
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              {% else %}
+              <li class="page-item ml-auto">
+                <a class="page-link" href="" aria-label="Next">
+                  <span class="d-none d-sm-inline-block mr-1">Next</span>
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              
+              {% endif %}
+            
+            
+            </ul>
+          </nav>
+          <!-- End Pagination -->
+        
+        
+          
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+      </div>
+      <!-- End Blog Listing Section -->
+    
+    </main>
+    <!-- ========== END MAIN ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <!-- ========== FOOTER ========== -->
+
+  <hr>
+
+    <footer class="container space-2 text-center">
+  <!-- Logo -->
+  <a class="d-inline-flex align-items-center mb-3" href="#" aria-label="Blueberry">
+    <img class="brand" src="{% static "blueberry/assets/svg/logos/logo.svg" %}" alt="Logo">
+  </a>
+  <!-- End Logo -->
+
+  
+  <p class="font-size-1">© Blueberry. 2020 Nimusoft. All rights reserved.</p>
+
+  <!-- Social Networks -->
+  <ul class="list-inline mb-0">
+    
+    <li class="list-inline-item mb-2 mb-sm-0">
+      <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li class="list-inline-item mb-2 mb-sm-0">
+      <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+        <i class="fab fa-medium-m"></i>
+      </a>
+    </li>
+    <li class="list-inline-item mb-2 mb-sm-0">
+      <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+    
+    
+  </ul>
+  <!-- End Social Networks -->
+</footer>
+<!-- ========== END FOOTER ========== -->
+    <!-- ========== END FOOTER ========== -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    
+    
+    
+    
+    <!-- End Account Sidebar Navigation -->
+    <!-- ========== END SECONDARY CONTENTS ========== -->
+
+    <!-- Go to Top -->
+    <a
+      class="js-go-to go-to position-fixed"
+      href="javascript:;"
+      style="visibility: hidden"
+      data-hs-go-to-options='{
+       "offsetTop": 700,
+       "position": {
+         "init": {
+           "right": 15
+         },
+         "show": {
+           "bottom": 15
+         },
+         "hide": {
+           "bottom": -15
+         }
+       }
+     }'
+    >
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- End Go to Top -->
+
+    <!-- JS Global Compulsory -->
+    <script src="{% static "blueberry/assets/vendor/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+ 
+
+<!-- IE Support -->
+    <script>
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write(
+          '<script src="{% static "blueberry/assets/vendor/polifills.js" %}"><\/script>'
+        );
+    </script>
+  </body>
+</html>
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Blog Single Article | Blueberry - Responsive Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../favicon.ico" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Implementing Plugins -->
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/font-awesome/css/all.min.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/fancybox/dist/jquery.fancybox.min.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/slick-carousel/slick/slick.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css" %}"
+    />
+    <link rel="stylesheet" href="{% static "blueberry/assets/vendor/aos/dist/aos.css" %}" />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/hs-video-bg/dist/hs-video-bg.min.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/cubeportfolio/css/cubeportfolio.min.css" %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/leaflet/dist/leaflet.css" %}"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="{% static "blueberry/assets/vendor/select2/dist/css/select2.min.css" %}"
+    />
+
+    
+
+    <!-- CSS Blueberry Template -->
+    <link rel="stylesheet" href="{% static "blueberry/assets/css/theme.css" %}" />
+
+
+    
+
+</head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="header">
+      <div class="header-section">
+        <div id="logoAndNav" class="container">
+          <!-- Nav -->
+          <nav class="js-mega-menu navbar navbar-expand-lg">
+            <div class="navbar-nav-wrap">
+              <!-- Logo -->
+              <a class="navbar-brand navbar-nav-wrap-brand" href="{% url 'blog:blog_list' %}" aria-label="Blueberry">
+                <img src="{% static "blueberry/assets/svg/logos/logo.svg" %}" alt="Logo">
+              </a>
+              <!-- End Logo -->
+    
+              <!-- Secondary Content -->
+              <div class="navbar-nav-wrap-content text-center">
+                
+              </div>
+              <!-- End Secondary Content -->
+    
+              <!-- Responsive Toggle Button -->
+              <button type="button" class="navbar-toggler navbar-nav-wrap-toggler btn btn-icon btn-sm rounded-circle"
+                      aria-label="Toggle navigation"
+                      aria-expanded="false"
+                      aria-controls="navBar"
+                      data-toggle="collapse"
+                      data-target="#navBar">
+                <span class="navbar-toggler-default">
+                  <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"/>
+                  </svg>
+                </span>
+                <span class="navbar-toggler-toggled">
+                  <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                  </svg>
+                </span>
+              </button>
+              <!-- End Responsive Toggle Button -->
+    
+              <!-- Navigation -->
+              <div id="navBar" class="collapse navbar-collapse navbar-nav-wrap-collapse">
+                <div class="navbar-body header-abs-top-inner">
+                  <ul class="js-scroll-nav navbar-nav header-navbar-nav">
+                    <li class="header-nav-item active">
+                      <a class="nav-link header-nav-link" href="#">Home</a>
+                    </li>
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">About</a>
+                    </li>
+                    
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">Events</a>
+                    </li>
+                    
+                    <li class="header-nav-item">
+                      <a class="nav-link header-nav-link" href="#">Contacts</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Navigation -->
+            </div>
+          </nav>
+          <!-- End Nav -->
+        </div>
+      </div>
+    </header>
+  <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN ========== -->
+    <main id="content" role="main">
+      <!-- Article Description Section -->
+      <div class="container space-top-1 space-bottom-2">
+        <div class="w-lg-60 mx-lg-auto">
+           
+            
+              
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'blog:blog_list' %}">Blog Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Details</li>
+                </ol>
+              </nav>
+              
+              {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                
+                
+                <strong>{{ message }}</strong> 
+                
+                
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                  </svg>
+                </button>
+              </div>
+              {% endfor %}
+              {% endif %}
+           
+            <div class="mb-4">
+            <h1 class="h2">{{ post.title }}</h1>
+          </div>
+
+          <!-- Author -->
+          <div class="border-top border-bottom py-4 mb-5">
+            <div class="row align-items-md-center">
+              
+            <div class="col-md-12">
+
+                <img
+                class="avatar-img"
+                src="{{ post.thumbnail.url }}"
+                alt="Image Description"
+              />
+             
+            </div>
+              
+            </div>
+          </div>
+          <!-- End Author -->
+
+          
+        </div>
+
+        
+
+        
+
+        
+
+        <div class="w-lg-60 mx-lg-auto">
+          
+
+          
+
+          <p>
+            {{ post.description | safe }}
+          </p>
+
+          
+
+          <!-- Badges -->
+          <div class="mt-5">
+            <a class="btn btn-xs btn-soft-secondary mb-1" href="#">Ecommerce</a>
+            <a class="btn btn-xs btn-soft-secondary mb-1" href="#">Website</a>
+            <a class="btn btn-xs btn-soft-secondary mb-1" href="#">Bootstrap</a>
+            <a class="btn btn-xs btn-soft-secondary mb-1" href="#">Startup</a>
+            <a class="btn btn-xs btn-soft-secondary mb-1" href="#">Free</a>
+          </div>
+          <!-- End Badges -->
+
+          <!-- Share -->
+          <div
+            class="row justify-content-sm-between align-items-sm-center mt-5"
+          >
+            <div class="col-sm-6 mb-2 mb-sm-0">
+              <div class="d-flex align-items-center">
+                <span class="d-block small font-weight-bold text-cap mr-2"
+                  >Share:</span
+                >
+
+                <a
+                  class="btn btn-xs btn-icon btn-ghost-secondary rounded-circle mr-2"
+                  href="#"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  class="btn btn-xs btn-icon btn-ghost-secondary rounded-circle mr-2"
+                  href="#"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  class="btn btn-xs btn-icon btn-ghost-secondary rounded-circle mr-2"
+                  href="#"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  class="btn btn-xs btn-icon btn-ghost-secondary rounded-circle mr-2"
+                  href="#"
+                >
+                  <i class="fab fa-telegram"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-sm-6 text-sm-right">
+              <a
+                class="btn btn-xs btn-icon btn-soft-secondary rounded-circle mr-2"
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark story"
+              >
+                <i class="far fa-bookmark"></i>
+              </a>
+              <a
+                class="btn btn-xs btn-icon btn-soft-secondary rounded-circle"
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Report story"
+              >
+                <i class="far fa-flag"></i>
+              </a>
+            </div>
+          </div>
+          <!-- End Share -->
+
+          
+
+          <div class="pt-2 mb-11">
+            <div class="mb-4">
+              <h3>{{ post.comment_count }} Comments</h3>
+            </div>
+
+            
+            
+            <ul class="list-unstyled">
+              
+                {% for comment in comments %}
+                <!-- Comment -->
+              <li class="mb-5">
+                <div class="media align-items-center mb-2">
+                  
+                  <div class="media-body">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h5 mb-0">{{ comment.name }}</span>
+                      <small class="text-muted">{{ comment.creation | timesince }}</small>
+                    </div>
+                  </div>
+                </div>
+
+                <p>
+                  {{ comment.body }}
+                </p>
+
+                
+              </li>
+              <!-- End Comment -->
+               {% endfor %}
+              
+            </ul>
+          
+        
+        
+        </div>
+
+          <div class="mb-5">
+            <h3>Post a comment</h3>
+          </div>
+
+          <!-- Form -->
+          <form action="." method="post" class="js-validate">
+            <div class="form-row">
+              <div class="col-12 mb-sm-3">
+                <div class="js-form-message form-group">
+                  <label class="input-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="inputName"
+                    placeholder="Name"
+                    aria-label="Name"
+                    required
+                    data-msg="Please enter your name."
+                  />
+                </div>
+              </div>
+
+              
+
+              <div class="col-12 mb-sm-3">
+                <div class="js-form-message form-group">
+                  <label class="input-label">Comment</label>
+                  <textarea
+                    class="form-control"
+                    rows="7"
+                    name="body"
+                    id="descriptionTextarea"
+                    placeholder="Comment"
+                    required
+                    data-msg="Please enter your message."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            {% csrf_token %}
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-primary btn-wide transition-3d-hover"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <!-- End Form -->
+        </div>
+      </div>
+      <!-- End Article Description Section -->
+
+      <!-- Blog Card Section -->
+      <div class="container">
+        <div class="w-lg-75 border-top space-2 mx-lg-auto">
+          <div class="mb-3 mb-sm-5">
+            <h3>Related blogs</h3>
+          </div>
+
+          <div class="row">
+            
+            
+            {% for post in similar_post %}
+            <div class="col-md-6">
+              
+                <!-- Blog Card -->
+              <article class="border-bottom h-100 py-5">
+                <div class="row justify-content-between">
+                  <div class="col-6">
+                    <a
+                      class="d-block small font-weight-bold text-cap mb-2"
+                      href="{{ post.get_absolute_url }}"
+                      >{{ post.title }}</a
+                    >
+                    <h4 class="mb-0">
+                      <a class="text-inherit" href="{{ post.get_absolute_url }}"
+                        >{{ post.short_description }}</a
+                      >
+                    </h4>
+                  </div>
+
+                  <div class="col-5">
+                    <img class="img-fluid" src="{{ post.thumbnail.url }}" width="500px" height="280px" alt="Image Description"/>
+                  </div>
+                </div>
+              </article>
+              <!-- End Blog Card -->
+            </div>
+            {% endfor %}
+            
+            
+            
+            
+
+            
+          </div>
+        </div>
+      </div>
+      <!-- End Blog Card Section -->
+
+      
+    </main>
+    <!-- ========== END MAIN ========== -->
+
+    <!-- ========== FOOTER ========== -->
+<footer class="container space-2 text-center">
+    <!-- Logo -->
+    <a class="d-inline-flex align-items-center mb-3" href="#" aria-label="Blueberry">
+      <img class="brand" src="{% static "blueberry/assets/svg/logos/logo.svg" %}" alt="Logo">
+    </a>
+    <!-- End Logo -->
+  
+    
+    <p class="font-size-1">© Blueberry. 2020 Nimusoft. All rights reserved.</p>
+  
+    <!-- Social Networks -->
+    <ul class="list-inline mb-0">
+      
+      <li class="list-inline-item mb-2 mb-sm-0">
+        <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      
+      <li class="list-inline-item mb-2 mb-sm-0">
+        <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      <li class="list-inline-item mb-2 mb-sm-0">
+        <a class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- End Social Networks -->
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+  
+    <!-- ========== END SECONDARY CONTENTS ========== -->
+
+    <!-- Go to Top -->
+    <a
+      class="js-go-to go-to position-fixed"
+      href="javascript:;"
+      style="visibility: hidden"
+      data-hs-go-to-options='{
+       "offsetTop": 700,
+       "position": {
+         "init": {
+           "right": 15
+         },
+         "show": {
+           "bottom": 15
+         },
+         "hide": {
+           "bottom": -15
+         }
+       }
+     }'
+    >
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- End Go to Top -->
+
+    <!-- JS Global Compulsory -->
+    <script src="{% static "blueberry/assets/vendor/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="{% static "blueberry/assets/vendor/hs-header/dist/hs-header.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-go-to/dist/hs-go-to.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/fancybox/dist/jquery.fancybox.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/jquery-validation/dist/jquery.validate.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/appear.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-counter/dist/hs-counter.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/circles/circles.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/aos/dist/aos.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/slick-carousel/slick/slick.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-show-animation/dist/hs-show-animation.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-unfold/dist/hs-unfold.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/typed.js/lib/typed.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-switch/dist/hs-switch-text.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-video-bg/dist/hs-video-bg.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-video-player/dist/hs-video-player.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-toggle-switch/dist/hs-toggle-switch.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/hs-scroll-nav/dist/hs-scroll-nav.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/leaflet/dist/leaflet.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/select2/dist/js/select2.full.min.js" %}"></script>
+    <script src="{% static "blueberry/assets/vendor/jquery-mask-plugin/dist/jquery.mask.min.js" %}"></script>
+    
+
+
+    <!-- JS Blueberry -->
+    <script src="{% static "blueberry/assets/js/hs.core.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.fancybox.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.validation.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.slick-carousel.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.ion-range-slider.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.circles.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.cubeportfolio.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.leaflet.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.select2.js" %}"></script>
+    <script src="{% static "blueberry/assets/js/hs.mask.js" %}"></script>
+    
+    <script>
+      $(document).on("ready", function () {
+        // initialization of header
+        var header = new HSHeader($("#header")).init();
+
+        // initialization of mega menu
+        $(".js-mega-menu").HSMegaMenu({
+          event: "hover",
+          pageContainer: $(".container"),
+          breakpoint: 1199.98,
+          hideTimeOut: 0,
+        });
+
+        // initialization of unfold
+        var unfold = new HSUnfold(".js-hs-unfold-invoker").init();
+
+        // initialization of show animations
+        $(".js-animation-link").each(function () {
+          var showAnimation = new HSShowAnimation($(this)).init();
+        });
+
+        // initialization of form validation
+        $(".js-validate").each(function () {
+          $.HSCore.components.HSValidation.init($(this), {
+            rules: {
+              confirmPassword: {
+                equalTo: "#signupPassword",
+              },
+            },
+          });
+        });
+
+        // initialization of go to
+        $(".js-go-to").each(function () {
+          var goTo = new HSGoTo($(this)).init();
+        });
+      });
+    </script>
+
+    <!-- IE Support -->
+    <script>
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write(
+          '<script src="../../assets/vendor/polifills.js"><\/script>'
+        );
+    </script>
+  </body>
+</html>

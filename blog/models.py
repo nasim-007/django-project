@@ -2,12 +2,35 @@ from django.db import models
 from django.urls import reverse
 from taggit.managers import TaggableManager
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
+    
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse("blog:blog_by_category", args={self.slug})
+    
+
+    
+
+
+
 # Create your models here.
 class Post(models.Model):
 
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete= models.CASCADE, related_name='posts')
     title = models.CharField(max_length=100)
     slug = models.SlugField()
-    thumbnail = models.ImageField(upload_to='public/')
+    thumbnail = models.ImageField(upload_to='nasim/')
     short_description = models.TextField()
     description = models.TextField()
     tags = TaggableManager()
@@ -38,3 +61,22 @@ class Comment(models.Model):
     def __str__(self):
         return self.name
     
+
+'''
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("blog:blog_by_category", args={self.slug})
+
+'''
