@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'cloudinary_storage',
+    'cloudinary',
+    
+    
     #my apps
     'myapp',
     'album',
@@ -143,6 +147,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
+
+'''
 AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVP7XN2E5V'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'nasim.secpstorage'
@@ -150,6 +156,18 @@ AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+'''
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'nimusoft2020',
+    'API_KEY': '754933874915344',
+    'API_SECRET': 'ppC1DTckXaMA2OhqXyjyXNJ_iew'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 
 '''
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
