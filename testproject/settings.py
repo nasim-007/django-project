@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-s@4jvn1kp+^83ret-y6=48bsqtun*o2$d!^i96mpz-j+y6_0)#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'djangoproject2021.herokuapp.com', 'practice.nimu.tech']
 
 
 # Application definition
