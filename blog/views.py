@@ -44,11 +44,11 @@ def blog_details(request, slug):
 
     categories = Category.objects.all().annotate(posts_count=Count('posts'))
     
-    latest_post = Post.objects.all()[:3]
+    latest_post = Post.objects.all()[:1]
     
     post = Post.objects.get(slug=slug)
     similar_post = post.tags.similar_objects()[:4]
-    comments = post.comments.all()
+    comments = post.comments.filter(approve_comment=True)
 
     if request.method == 'POST':
         
