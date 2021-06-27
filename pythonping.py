@@ -1,6 +1,6 @@
 import requests
 
-response = requests.get('https://google.com')
+response = requests.get('https://djangoproject2021.herokuapp.com')
 
 
 print(response)
