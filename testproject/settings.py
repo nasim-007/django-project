@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s@4jvn1kp+^83ret-y6=48bsqtun*o2$d!^i96mpz-j+y6_0)#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'djangoproject2021.herokuapp.com', 'practice.nimu.tech']
 
@@ -203,6 +203,8 @@ DROPBOX_OAUTH2_TOKEN = 'S9RQm48HGU4AAAAAAAAAAQpytNVMRZemF-Cry-KpE6dt9t1tXsrvOm4_
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+SECURE_SSL_REDIRECT = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
