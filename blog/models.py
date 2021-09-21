@@ -46,8 +46,8 @@ class Post(models.Model):
             })
     
     @property
-    def comment_approve(self):
-        return Comment.objects.filter(approve_comment=True).count()
+    def comment_count(self):
+        return Comment.objects.filter(approve=True).count()
 
 
 
@@ -57,7 +57,7 @@ class Comment(models.Model):
     name = models.CharField(max_length=80)
     body = models.TextField()
     creation = models.DateTimeField(auto_now_add=True)
-    approve_comment = models.BooleanField(default=False)
+    approve = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
