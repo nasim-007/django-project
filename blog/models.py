@@ -47,7 +47,7 @@ class Post(models.Model):
     
     @property
     def comment_count(self):
-        return Comment.objects.filter(approve=True).count()
+        return Comment.objects.filter(post=self).count()
 
 
 

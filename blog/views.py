@@ -49,7 +49,8 @@ def blog_details(request, slug):
     post = Post.objects.get(slug=slug)
     similar_post = post.tags.similar_objects()[:4]
     comments = post.comments.filter(approve=True)
-
+    
+    
     if request.method == 'POST':
         
         comment_form = CommentForm(request.POST)
