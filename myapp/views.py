@@ -12,7 +12,7 @@ def homepage(request):
        'profile': profile
     }
 
-    return render(request, 'index.html', context)
+    return render(request, 'myapp/index.html', context)
 
 def blueberry(request):
 

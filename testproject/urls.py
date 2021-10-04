@@ -16,15 +16,20 @@ from django.views.static import serve as mediaserve
 urlpatterns = [
     path('admin/', admin.site.urls),
     
+    path('carousel/', include('carousel.urls', namespace='carousel')),
+    path('album/', include('album.urls', namespace='album')),
+    path('profile/', include('myapp.urls', namespace='myapp')),
+    
+
     path('', include('blog.urls', namespace='blog')),
     
-    path('carousel/', include('carousel.urls', namespace='carousel')),
-    path('myapp/', include('myapp.urls', namespace='myapp')),
+    
+    
     url(r'^robots\.txt/$', TemplateView.as_view(template_name='robots.txt',
                                             content_type='text/plain')),
     url(r'^sitemap\.xml/$', TemplateView.as_view(template_name='sitemap.xml',
                                             content_type='text/plain')),                                        
-    path('album/', include('album.urls', namespace='album')),
+    
     path('summernote/', include('django_summernote.urls'))
 
 

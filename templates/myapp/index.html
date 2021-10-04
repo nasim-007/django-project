@@ -59,7 +59,7 @@
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
         
-        <strong>Dynamic Carousel</strong>
+        <strong>Profiles</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -70,31 +70,55 @@
 
 <main>
 
-  
-
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">User Profiles</h1>
         
         
-            
-        
-        {% for data in carousel %}  
-        <div class="carousel-item {% if forloop.first %} active {% else %}{% endif %}">
-        <img src="{{ data.image.url }}" class="d-block w-100" alt="Slide">
-        </div>
-        {% endfor %}
-   
-   
+      </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        
+        
+          
+          {% for data in profile %}
+              
+         
+              
+          <div class="col">
+            <div class="card shadow-sm">
+              
+  
+                <img src="{{ data.image.url }}" class="bd-placeholder-img card-img-top" alt="Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ data.name }}</h5>
+                  <p class="card-text">{{ data.address }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Age: {{ data.age }}</li>
+                  
+                </ul>
+                
+            
+            
+            </div>
+          </div>
+          {% endfor %}
+          
+          
+
+          
+        
+        
+      </div>
+    </div>
   </div>
 
 </main>
