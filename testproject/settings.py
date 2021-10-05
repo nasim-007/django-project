@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'djangoproject2021.herokuapp.com', 'practice.nimu.tech', 'project.nimusoft.com']
 
@@ -25,9 +25,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'cloudinary_storage',
     'cloudinary',
+    'accounts',
+
+    
+    
+    # 3rd party
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
     
     
     #my apps
@@ -75,6 +84,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'testproject.wsgi.application'
+
 
 
 # Database
@@ -193,7 +203,33 @@ DROPBOX_OAUTH2_TOKEN = ''
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-SECURE_SSL_REDIRECT = True
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+
+LOGIN_REDIRECT_URL = 'accounts:home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'accounts:home'
+
+SECURE_SSL_REDIRECT = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

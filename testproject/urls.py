@@ -19,11 +19,11 @@ urlpatterns = [
     path('carousel/', include('carousel.urls', namespace='carousel')),
     path('album/', include('album.urls', namespace='album')),
     path('profile/', include('myapp.urls', namespace='myapp')),
+    path('home/', include('accounts.urls', namespace='accounts')),
     
-
     path('', include('blog.urls', namespace='blog')),
     
-    
+    path('accounts/', include('allauth.urls')),
     
     url(r'^robots\.txt/$', TemplateView.as_view(template_name='robots.txt',
                                             content_type='text/plain')),
